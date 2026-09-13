@@ -81,15 +81,7 @@ while IFS= read -r line; do
         *'"content":'*)
           ;;
         *)
-          printf '{"jsonrpc":"2.0","id":%s,"error":{"code":-32602,"message":"session/prompt must send content and prompt"}}\n' "$id"
-          exit 0
-          ;;
-      esac
-      case "$line" in
-        *'"prompt":'*)
-          ;;
-        *)
-          printf '{"jsonrpc":"2.0","id":%s,"error":{"code":-32602,"message":"session/prompt must send content and prompt"}}\n' "$id"
+          printf '{"jsonrpc":"2.0","id":%s,"error":{"code":-32602,"message":"session/prompt must send content"}}\n' "$id"
           exit 0
           ;;
       esac
